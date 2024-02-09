@@ -4,6 +4,7 @@ using MagicVilla_WebAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagicVilla_WebAPI.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240208164817_SeedVillaTable")]
+    partial class SeedVillaTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,40 +73,40 @@ namespace MagicVilla_WebAPI.Migrations
                         {
                             Id = 1,
                             Amenity = "",
-                            CreatedDate = new DateTime(2024, 2, 8, 21, 50, 32, 133, DateTimeKind.Local).AddTicks(6650),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Details = "aasdf asd  asdf asdf",
                             ImageUrl = "",
                             Name = "Royal Villa",
                             Occupancy = 5,
                             Rate = 500.0,
                             SqFt = 550,
-                            UpdatedDate = new DateTime(2024, 2, 8, 21, 50, 32, 133, DateTimeKind.Local).AddTicks(6663)
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
                             Amenity = "",
-                            CreatedDate = new DateTime(2024, 2, 8, 21, 50, 32, 133, DateTimeKind.Local).AddTicks(6666),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Details = "aasdf asd  asdf asdf",
                             ImageUrl = "",
                             Name = "Royal Villa 2",
                             Occupancy = 5,
                             Rate = 500.0,
                             SqFt = 550,
-                            UpdatedDate = new DateTime(2024, 2, 8, 21, 50, 32, 133, DateTimeKind.Local).AddTicks(6666)
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
                             Amenity = "",
-                            CreatedDate = new DateTime(2024, 2, 8, 21, 50, 32, 133, DateTimeKind.Local).AddTicks(6668),
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Details = "aasdf asd  asdf asdf",
                             ImageUrl = "",
                             Name = "Royal Villa 3",
                             Occupancy = 5,
                             Rate = 500.0,
                             SqFt = 550,
-                            UpdatedDate = new DateTime(2024, 2, 8, 21, 50, 32, 133, DateTimeKind.Local).AddTicks(6669)
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 #pragma warning restore 612, 618
