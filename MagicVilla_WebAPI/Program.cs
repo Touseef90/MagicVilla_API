@@ -1,5 +1,7 @@
 using MagicVilla_WebAPI;
 using MagicVilla_WebAPI.Data;
+using MagicVilla_WebAPI.Repository;
+using MagicVilla_WebAPI.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -11,6 +13,8 @@ builder.Services.AddDbContext<ApplicationDBContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSqlConnection"));
 });
+
+builder.Services.AddScoped<IVillaRepository, VillaRepository>();
 
 builder.Services.AddAutoMapper(typeof(MappingConfig));
 
