@@ -68,6 +68,7 @@ namespace MagicVilla_WebAPI.Controllers
                 }
                 _response.Result = _mapper.Map<VillaDTO>(villa);
                 _response.StatusCode = HttpStatusCode.OK;
+                _response.IsSuccess = true;
                 return Ok(_response);
             }
             catch (Exception ex)
@@ -101,8 +102,9 @@ namespace MagicVilla_WebAPI.Controllers
 
                 _response.Result = _mapper.Map<VillaDTO>(villa);
                 _response.StatusCode = HttpStatusCode.Created;
+				_response.IsSuccess = true;
 
-                return CreatedAtRoute("GetVilla", new { id = villa.Id }, _response);
+				return CreatedAtRoute("GetVilla", new { id = villa.Id }, _response);
             }
             catch (Exception ex)
             {
