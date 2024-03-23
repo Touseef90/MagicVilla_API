@@ -37,10 +37,11 @@ namespace MagicVilla_WebAPI.Controllers
         {
             try
             {
-                IEnumerable<VillaNumber> villaNumberList = await _dbVillaNumber.GetAllAsync();
+                IEnumerable<VillaNumber> villaNumberList = await _dbVillaNumber.GetAllAsync(includeProperties: "Villa");
                 _response.Result = _mapper.Map<List<VillaNumberDTO>>(villaNumberList);
                 _response.StatusCode = HttpStatusCode.OK;
-                return Ok(_response);
+				_response.IsSuccess = true;
+				return Ok(_response);
             }
             catch (Exception ex)
             {
@@ -71,7 +72,8 @@ namespace MagicVilla_WebAPI.Controllers
                 }
                 _response.Result = _mapper.Map<VillaNumberDTO>(villaNumber);
                 _response.StatusCode = HttpStatusCode.OK;
-                return Ok(_response);
+				_response.IsSuccess = true;
+				return Ok(_response);
             }
             catch (Exception ex)
             {
@@ -109,8 +111,9 @@ namespace MagicVilla_WebAPI.Controllers
 
                 _response.Result = _mapper.Map<VillaNumberDTO>(villaNumber);
                 _response.StatusCode = HttpStatusCode.Created;
+				_response.IsSuccess = true;
 
-                return CreatedAtRoute("GetVillaNumber", new { id = villaNumber.VillaNo }, _response);
+				return CreatedAtRoute("GetVillaNumber", new { id = villaNumber.VillaNo }, _response);
             }
             catch (Exception ex)
             {
