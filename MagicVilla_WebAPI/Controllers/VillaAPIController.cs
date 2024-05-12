@@ -30,7 +30,9 @@ namespace MagicVilla_WebAPI.Controllers
 
         [HttpGet]
         [Authorize]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+		[ProducesResponseType(StatusCodes.Status403Forbidden)]
+		[ProducesResponseType(StatusCodes.Status401Unauthorized)]
+		[ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<APIResponse>> GetVillas()
         {
             try
@@ -52,6 +54,8 @@ namespace MagicVilla_WebAPI.Controllers
 
         [HttpGet("{id:int}", Name = "GetVilla")]
 		[Authorize(Roles = "admin")]
+		[ProducesResponseType(StatusCodes.Status403Forbidden)]
+		[ProducesResponseType(StatusCodes.Status401Unauthorized)]
 		[ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -85,6 +89,8 @@ namespace MagicVilla_WebAPI.Controllers
 
         [HttpPost]
 		[Authorize(Roles = "admin")]
+		[ProducesResponseType(StatusCodes.Status403Forbidden)]
+		[ProducesResponseType(StatusCodes.Status401Unauthorized)]
 		[ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<APIResponse>> CreateVilla([FromBody] VillaCreateDTO createDTO)
@@ -121,6 +127,8 @@ namespace MagicVilla_WebAPI.Controllers
 
         [HttpDelete("{id:int}", Name = "DeleteVilla")]
 		[Authorize(Roles = "CUSTOM")]
+		[ProducesResponseType(StatusCodes.Status403Forbidden)]
+		[ProducesResponseType(StatusCodes.Status401Unauthorized)]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
