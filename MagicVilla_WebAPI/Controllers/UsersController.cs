@@ -7,9 +7,10 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace MagicVilla_WebAPI.Controllers
 {
-	[Route("api/UsersAuth")]
+	[Route("api/v{version:apiVersion}/UsersAuth")]
 	[ApiController]
-	public class UsersController : Controller
+    [ApiVersion("1.0")]
+    public class UsersController : Controller
 	{
 		private readonly IUserRepository _userRepo;
 		protected APIResponse _response;
