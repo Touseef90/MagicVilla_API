@@ -65,11 +65,13 @@ namespace MagicVilla_WebAPI.Controllers
                 if (id == 0)
                 {
                     _logger.LogError("Get Villa. Id cannot be 0");
+                    _response.IsSuccess = false;
                     return BadRequest();
                 }
                 var villa = await _dbVilla.GetAsync(x => x.Id == id);
                 if (villa == null)
                 {
+                    _response.IsSuccess = false;
                     return NotFound();
                 }
                 _response.Result = _mapper.Map<VillaDTO>(villa);
